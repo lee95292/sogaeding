@@ -23,10 +23,10 @@
             <div class="login_idpw">
             	<form action="/login.do" method="POST">
             		<div class="login_item">
-           				<input id="input_id" type="text" name="id">		
+           				<input id="input_id" type="text" name="id" />		
             		</div>
             		<div class="login_item">
-            			<input id="input_pw" type="password" name="password">
+            			<input id="input_pw" type="password" name="password" autocomplete="off" />
             		</div>
             		<ul class="go_link">
 	         		    <li><a href="#">회원가입</a></li>
@@ -34,7 +34,7 @@
 	       			    <li><a href="#">PW찾기</a></li>
 	      			</ul>
 	      			<div class="login_btn">
-            			<input type="submit" value="로그인">
+            			<input type="submit" value="로그인" />
 	      			</div>
             	</form>
             </div>
