@@ -9,7 +9,6 @@ public class MainController {
 
 	@GetMapping("/")
 	public String main(Model model) {
-		System.out.println("its test");
 		return "main";
 	}
 }
