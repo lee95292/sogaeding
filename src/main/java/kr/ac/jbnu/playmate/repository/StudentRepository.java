@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import kr.ac.jbnu.playmate.model.Student;
 
 @Repository
-public interface JpaStudentRepository extends org.springframework.data.repository.Repository<Student, Integer>{
+public interface StudentRepository extends org.springframework.data.repository.Repository<Student, Integer>{
 
 	
 	public Student findById(Integer Id) throws DataAccessException;
