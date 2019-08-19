@@ -17,7 +17,7 @@
             <div class="login">
              <!-- logo 들어가기 -->
             <div class="login_logo">
-            	<img id="logo" src="resources/imgs/logo/logo.jpg" height=500px width=500px>
+            	<img id="logo" src="resources/imgs/logo/logo.jpg" height=250px width=250px>
             </div>
             <!--  login id/pw -->
             <div class="login_idpw">
@@ -29,7 +29,7 @@
             			<input id="input_pw" type="password" name="password" autocomplete="off" />
             		</div>
             		<ul class="go_link">
-	         		    <li><a href="#">회원가입</a></li>
+	         		    <li><a href="/member/signup">회원가입</a></li>
 	        		    <li><a href="#">ID찾기</a></li>
 	       			    <li><a href="#">PW찾기</a></li>
 	      			</ul>

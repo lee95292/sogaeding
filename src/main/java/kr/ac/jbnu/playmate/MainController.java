@@ -11,4 +11,9 @@ public class MainController {
 	public String main(Model model) {
 		return "main";
 	}
+	
+	@GetMapping("/member/signup")
+	public String signUp(Model model) {
+		return "signup";
+	}
 }

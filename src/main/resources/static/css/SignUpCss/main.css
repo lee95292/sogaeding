@@ -1,0 +1,176 @@
+	.content {
+				float:left;
+			    width: 42%;
+			}
+		    .content_info {
+				    width: 58%;
+    				padding: 25px 25px 10px 25px;
+			}
+			h1.content_tit {
+   				 font-size: 32px;
+			}
+			.type_sel {
+				margin-top: 25px;
+				height:100px;
+			}
+			.type {
+			        border-radius: 20px;
+				    padding: 0 16px 0 64px;
+				    width: 32%;
+				    float: left;
+				    height: 100px;
+				    text-align: center;
+				    border: 1px solid #d4dadc;
+				    margin: 0 0.5%;
+				    font-size: 32px;
+				    line-height: 100px;
+				    font-weight: 600;
+				    background-repeat: no-repeat;
+				    background-position: left;
+				    background-size: 60px;
+				    background-position-x: 25px;
+			}
+			#type_admin {
+			 color:rgb(237,160,64);
+			 background-image: url(/resources/imgs/icon/ic_admin.png);
+			}
+			#type_teacher {
+			 color:rgb(51,125,192);
+			 background-image: url(/resources/imgs/icon/ic_teacher.png);
+			}
+			#type_student {
+			 color:rgb(74,166,157);
+			 background-image: url(/resources/imgs/icon/ic_student.png);
+			}
+			.side_title {
+				margin-bottom:15px;
+			}
+			.side_title h1 {
+				font-size:22px;
+			}
+			.side_title span {
+				color:#C84E0B;
+				font-size:14px
+			}
+			.write_tb {
+				margin-top:15px;
+				width:100%;
+				border-bottom: 1px solid #b8c1c3;
+    			background-color: #fff;
+   				border-collapse: collapse;
+			}
+			.mgt0 {
+				margin-top:0 !important;
+			}
+			.write_tb th {
+			    width: 20%;
+			    border-top: 1px solid #b8c1c3;
+			    vertical-align: middle;
+			    font-weight: 700;
+			    font-size: 16px;
+			    color: #606262;
+			    text-align: left;
+			    padding: 4px 5px;
+			    background: #e3e8e9;
+		    }
+		    .write_tb td {
+		        width: 70%;
+			    border-top: 1px solid #b8c1c3;
+			    vertical-align: middle;
+			    font-weight: normal;
+			    font-size: 13px;
+			    color: #606262;
+			    text-align: left;
+			    padding: 5px 5px;
+		    }
+		    .write_tb td label {
+    display: inline-block;
+    vertical-align: middle;
+    padding-right: 12px;
+    font-size: 16px;
+    color: #606262;
+}
+		    .write_tb input {
+   height: 25px;
+    border: 1px solid #c9d1d5;
+    vertical-align: middle;
+    margin-right: 5px;
+    padding: 5px;
+    color: #606262;
+    margin-left: 0;
+    font-size: 14px;
+    *padding-right: 0;
+}
+  .write_tb input.radio {
+    width: auto;
+    position: relative;
+    height: auto;
+    border: none;
+    padding: 0;
+    left: 3px;
+    margin-right: 20px;
+}
+.write_tb select.w80 {
+    width: 80px;
+    height: 25px;
+}
+.write_tb select.w70 {
+    width: 70px;
+    height: 25px;
+}
+.write_tb .w70 {
+    margin-right: 5;
+}
+  p.passwordPolicyLi {
+        text-indent:-1.2em;
+        padding-top:0.2em;
+        padding-left:1em;
+        line-height:1.4em;
+        margin:0em;
+    }
+
+    p.passwordPolicyLi2 {
+        text-indent:-1.2em;
+        color:blue;
+        font-size:0.95em;
+        padding-left:2em;
+        padding-top:0.1em;
+        line-height:1.4em;
+        margin:0em;
+    }
+    .btn_wrap {
+    clear: both;
+    width: 100%;
+    padding: 30px 0;
+    text-align: center;
+    display: flex;
+}
+.btn_pop {
+background-color: rgb(62,72,84);
+    padding: 1% 1.5%;
+    border-radius: 10px;
+    color: #fff;
+    }
+.txtbtn {
+    margin: 0 auto;
+    width: 25%;
+    text-align: center;
+    border: 1px solid #d4dadc;
+    border-radius: 15px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 24px;
+    transition: 0.2s;
+}
+.txtbtn:hover {
+	background-color:rgb(134,186,85);
+	color:#fff;
+	border:1px solid transparent;
+	
+}
+ .w60 {
+ 	width: 70px;
+    display: inline-block;
+    height: 25px;
+    margin-right: 10px;
+ }

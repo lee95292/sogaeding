@@ -21,8 +21,8 @@
 }
 .content .login {
 	border: 1px solid white;
-    width: 800px;
-    height: 1000px;
+    width: 400px;
+    height: 540px;
     background-color: #fff;
     border-radius: 15px;
     margin: 0 auto;
@@ -31,15 +31,14 @@
 }
 
 .login_logo {
+	padding-top: 20px;
     width: 100%;
-    height: 500px;
-    margin-bottom: 30px;
+    height: 250px;
     text-align:center;
-    padding-top:50px;
 }
 .login_idpw {
     width: 100%;
-    height: 470px;
+    height: 250px;
 }
 .login_item {
     text-align: center;
@@ -48,17 +47,17 @@
     margin-bottom: 20px;
 }
 .login_item input {
-    width: 70%;
-    font-size: 28px;
+  	width: 70%;
+    font-size: 16px;
     border: 1px solid #e6e6e6;
     color: #000000;
-    padding: 0 5px 0 80px;
-    height: 70px;
-    line-height: 70px;
+    padding: 0 10px 0 45px;
+    height: 35px;
+    line-height: 35px;
     background-repeat: no-repeat;
-    background-size: 50px auto;
+    background-size: 25px auto;
     background-position-x: 10px;
-    background-position-y: 9px;
+    background-position-y: 5px;
 }
 #input_id {
 	 background-image: url(/resources/imgs/icon/user-icon.png);
@@ -76,30 +75,30 @@
 .login_btn input {
 	border-radius: 30px;
     width: 75%;
-    height: 90px;
-    font-size: 32px;
+    height: 45px;
+    font-size: 24px;
     font-weight:600;
     background-color: rgb(74,83,121);
     color: #fff;
     cursor: pointer;
 }
 .go_link {
-	display: inline-block;
+    display: inline-block;
     position: relative;
     float: right;
     margin-top: 3px;
-    margin-right: 105px;
+    margin-right: 45px;
 }
 .go_link li {
 	float: left;
 }
 .go_link li a {
     display: inline-block;
-    font-size: 28px;
+    font-size: 13px;
     color: #666666;
     padding: 0 15px;
-    height: 70px;
-    line-height: 70px;
+    height: 35px;
+    line-height: 35px;
     border: 1px solid #e6e6e6;
 }
 
