@@ -1,15 +1,17 @@
 package kr.ac.jbnu.playmate.model;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
+@Getter @Setter
 @MappedSuperclass
 public class UserEntity extends BaseEntity{
 	
@@ -17,12 +19,20 @@ public class UserEntity extends BaseEntity{
 	@NotNull
 	protected String userEmail;
 	
-	@Column (name="name")
+	@Column (name="user_name")
 	@NotNull
-	protected String name;
+	protected String userName;
 	
 	@Column(name="password")
 	@NotNull
 	protected String password;
+	
+	@Column(name="gender")
+	@NotNull
+	protected String gender;
+	
+	@Column(name="birth_date")
+	@NotNull @DateTimeFormat(pattern="yyyy/mm/dd")
+	protected LocalDate birthDate;
 	
 }
