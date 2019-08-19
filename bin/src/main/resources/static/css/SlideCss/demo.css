@@ -1,0 +1,105 @@
+/*
+  Add an initial background-image to .backgroundTransition container. This image
+  should match the first image passed into the plugin's 'background' array.
+  Adding this here ensures that there is a background image loaded on page load,
+  while waiting for document.ready().
+ */
+.backgroundTransition {
+  background-image: url('https://unsplash.it/1920/1400?image=933');
+}
+
+/*
+  The following css is merely to style the white container in the middle of the page.
+*/
+.content {
+    height:inherit;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: rgba(0,0,0,.4);
+    color:#fff;
+}
+.content .login {
+	border: 1px solid white;
+    width: 800px;
+    height: 1000px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.login_logo {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 30px;
+    text-align:center;
+    padding-top:50px;
+}
+.login_idpw {
+    width: 100%;
+    height: 470px;
+}
+.login_item {
+    text-align: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.login_item input {
+    width: 70%;
+    font-size: 28px;
+    border: 1px solid #e6e6e6;
+    color: #000000;
+    padding: 0 5px 0 80px;
+    height: 70px;
+    line-height: 70px;
+    background-repeat: no-repeat;
+    background-size: 50px auto;
+    background-position-x: 10px;
+    background-position-y: 9px;
+}
+#input_id {
+	 background-image: url(/resources/imgs/icon/user-icon.png);
+}
+#input_pw {
+	 background-image: url(/resources/imgs/icon/password-icon.png);
+}
+.login_btn {
+	position: relative;
+    clear: both;
+    width: 100%;
+    text-align: center;
+    bottom: -10px;
+}
+.login_btn input {
+	border-radius: 30px;
+    width: 75%;
+    height: 90px;
+    font-size: 32px;
+    font-weight:600;
+    background-color: rgb(74,83,121);
+    color: #fff;
+    cursor: pointer;
+}
+.go_link {
+	display: inline-block;
+    position: relative;
+    float: right;
+    margin-top: 3px;
+    margin-right: 105px;
+}
+.go_link li {
+	float: left;
+}
+.go_link li a {
+    display: inline-block;
+    font-size: 28px;
+    color: #666666;
+    padding: 0 15px;
+    height: 70px;
+    line-height: 70px;
+    border: 1px solid #e6e6e6;
+}
+
