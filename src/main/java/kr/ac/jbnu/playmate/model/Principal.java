@@ -11,10 +11,10 @@ import lombok.Setter;
 @Getter @Setter
 @Entity
 @Table(name="principal")
-public class Principal {
+public class Principal extends UserEntity{
 	
 	@OneToOne
-	@JoinColumn(/*TODO , school_id*/)
-	private Integer school_id;
+	@JoinColumn(name="school_id")
+	private School school;
 	
 }
