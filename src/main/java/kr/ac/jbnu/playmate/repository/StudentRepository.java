@@ -11,13 +11,13 @@ import kr.ac.jbnu.playmate.model.Student;
 @Repository
 public interface StudentRepository extends org.springframework.data.repository.Repository<Student, Integer>{
 
-	/*TODO : implements students */
-	public Student findById(Integer Id) throws DataAccessException;
-
-	public  Collection<Student> findByClassId(Integer Id) throws DataAccessException;
-
-	public void save(Student student) throws DataAccessException;
-	
-	@Query("SELECT count(*) from student")
-	public Integer count();
+//	/*TODO : implements students */
+//	public Student findById(Integer Id) throws DataAccessException;
+//
+//	public  Collection<Student> findByClassId(Integer Id) throws DataAccessException;
+//
+//	public void save(Student student) throws DataAccessException;
+//	
+//	@Query("SELECT count(*) from student")
+//	public Integer count();
 }
