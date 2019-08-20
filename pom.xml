@@ -13,6 +13,7 @@
 	<artifactId>playmate</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>playmate</name>
+	<packaging>jar</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -91,6 +92,11 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.microsoft.azure</groupId>
+				<artifactId>azure-webapp-maven-plugin</artifactId>
+				<version>1.6.0</version>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
