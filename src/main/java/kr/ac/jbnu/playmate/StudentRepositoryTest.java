@@ -20,20 +20,20 @@ import kr.ac.jbnu.playmate.repository.StudentRepository;
 @ContextConfiguration(classes=StudentRepositoryTest.class,loader=AnnotationConfigContextLoader.class)
 public class StudentRepositoryTest {
 	
-	@Autowired
-	private StudentRepository studentRepository;
-	
-	@Test
-	public void testInsert() {
-		Student student = new Student();
-		student.setBirthDate(LocalDate.now());
-		student.setGender("male");
-		student.setMyclass(new Class());
-		student.setPassword("test");
-		student.setUserEmail("lee95292@baver,cin");
-		student.setUserName("test");
-		
-		studentRepository.save(student);
-		
-	}
+//	@Autowired
+//	private StudentRepository studentRepository;
+//	
+//	@Test
+//	public void testInsert() {
+//		Student student = new Student();
+//		student.setBirthDate(LocalDate.now());
+//		student.setGender("male");
+//		student.setMyclass(new Class());
+//		student.setPassword("test");
+//		student.setUserEmail("lee95292@baver,cin");
+//		student.setUserName("test");
+//		
+//		studentRepository.save(student);
+//		
+//	}
 }
