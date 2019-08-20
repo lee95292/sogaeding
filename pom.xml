@@ -96,6 +96,23 @@
 				<groupId>com.microsoft.azure</groupId>
 				<artifactId>azure-webapp-maven-plugin</artifactId>
 				<version>1.6.0</version>
+				<configuration>
+					<schemaVersion>V2</schemaVersion>
+					<resourceGroup>gs-spring-boot-1559091271202-rg</resourceGroup>
+					<appName>gs-spring-boot-1559091271202</appName>
+					<region>westeurope</region>
+					<pricingTier>P1V2</pricingTier>
+
+					<!-- Begin of App Settings -->
+					<appSettings>
+						<property>
+							<name>JAVA_OPTS</name>
+							<value>-Dserver.port=80</value>
+						</property>
+					</appSettings>
+					<!-- End of App Settings -->
+
+				</configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
