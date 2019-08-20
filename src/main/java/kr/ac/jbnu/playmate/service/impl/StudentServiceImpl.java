@@ -10,7 +10,7 @@ import kr.ac.jbnu.playmate.service.StudentService;
 @Service
 public class StudentServiceImpl implements StudentService{
 
-	@Autowired
+	@Autowired(required = false)
 	private StudentRepository studentRepository;
 	
 	@Override

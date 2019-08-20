@@ -10,10 +10,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@ComponentScan
-@SpringBootApplication
 
 //DB 설정하지 않은 상태 => 설정 후 삭제 
+@ComponentScan
+@SpringBootApplication
 @EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class PlaymateApplication {
 
