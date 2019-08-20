@@ -98,9 +98,9 @@
 				<version>1.6.0</version>
 				<configuration>
 					<schemaVersion>V2</schemaVersion>
-					<resourceGroup>gs-spring-boot-1559091271202-rg</resourceGroup>
-					<appName>gs-spring-boot-1559091271202</appName>
-					<region>westeurope</region>
+					<resourceGroup>playmate</resourceGroup>
+					<appName>playmate</appName>
+					<region>centralus</region>
 					<pricingTier>P1V2</pricingTier>
 
 					<!-- Begin of App Settings -->
@@ -122,3 +122,4 @@
 	</build>
 
 </project>
+
