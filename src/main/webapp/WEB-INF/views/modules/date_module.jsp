@@ -7,7 +7,7 @@
 
 <div id="date_module" class="container">
 	<div class="row">
-		<div class="col-sm calendar" style="border:none;">
+		<div class="col-sm calendar" style="border:none; position:absolute; padding:0; line-height: unset;     width: 90%;">
 			 
 			</div>
 	</div>

@@ -1,35 +1,69 @@
 .col-sm {
     height: 50px;
-    border: 0.5px solid #d4dadc;
+        padding: 0;
+    border: 0.3px solid #d4dadc;
     text-align: center;
     line-height: 50px;
 }
+.col-sm a {
+	    display: block ;
+}
+.pignose-calendar {
+	height: 380px !important;
+}
+.pignose-calendar-row {
+	height: 40px !important;
+	line-height:40px !important;
+}
 /* ======== contents ========= */
 #student_menu .row .w-100:first-child .col-sm{
-	font-size:1rem;
-	color:#fff;
-	font-weight:600;
-	background-color:#fab1a0;
-	border-radius: 10px 10px 0 0;
+	/* font-size:1rem; */
+	/* color:#fff; */
+	/* font-weight:600; */
+	background-color:#fafafa;
+	/* background-color:#fab1a0; */
+	/* border-radius: 10px 10px 0 0; */
 }
-
+#student_menu .col-sm a:hover {
+	background: rgb(85,186,127);
+    color: #fff;
+    text-decoration:none;
+}
 #student_menu .row .w-100:last-child .col-sm{
-	border-radius: 0px 0px 10px 10px;
+	/* border-radius: 0px 0px 10px 10px; */
 }
 #link_sites .row .w-100:first-child .col-sm{
-	font-size:1rem;
+	/* font-size:1rem;
 	color:#fff;
-	font-weight:600;
-	background-color:#74b9ff;
-	border-radius: 10px 10px 0 0;
+	font-weight:600; */
+	background-color:#fafafa;
+	/* background-color:#74b9ff;
+	border-radius: 10px 10px 0 0; */
 }
 #link_sites .row .col-sm:nth-last-child(2){
-	border-radius: 0 0 0 10px;
+/* 	border-radius: 0 0 0 10px; */
 }
 #link_sites .row .col-sm:nth-last-child(1){
-	border-radius: 0 0 10px 0;
+/* 	border-radius: 0 0 10px 0; */
+}
+#link_sites img {
+	width:70%;
+}
+#link_sites .col-sm {
+    padding: 0 20px;
+    height: 60px;
+    border: 0.3px solid #d4dadc;
+    text-align: center;
+    line-height: 60px;
+	
 }
 /* ======== class title ========= */
-#class_title .row .w-100 
+#class_title .row .w-100 .col-sm:first-child {
+	background-color:#fafafa;
+}
+#class_title #class_name{
+	line-height:50px;
+	display: contents;
+}
 
 /* ======== link sites ========= */

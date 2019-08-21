@@ -33,10 +33,10 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                   <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
+                    <li class="nav-item active" id="e_class_li">
                       <a class="nav-link" href="#" id="e_class">e 교실</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" id="e_room_li">
                       <a class="nav-link" href="#" id="e_room">e 강의실</a>
                     </li>
                   </ul>
@@ -95,22 +95,20 @@
 <script>
 //메뉴 버튼 클릭 
 $(document).ready(()=>{
-	var maxheight = $(window).height();
+	var maxheight = $(window).height()*5/6;
 	$('.col').css({'height':maxheight});
 	
 });
-$('#e_room.nav-link').click(()=>{
-	var x =$('#e_room.nav-link').parents().attr('class');
-	$('.'+x).addClass('active');
-	$('#e_class').parents().removeClass('active');
+$('#e_room.nav-link').mousedown(()=>{
+	$('#e_room_li').addClass('active');
+	$('#e_class_li').removeClass('active');
 	$('.navbar').css({'border-bottom':'2px solid #DF6055'});
 	$('#e_class_contents').addClass('nodisplay');
 	$('#e_room_contents').removeClass('nodisplay');
 });
-$('#e_class.nav-link').click(()=>{
-	var x =$('#e_class.nav-link').parents().attr('class');
-	$('.'+x).addClass('active');
-	$('#e_room').parents().removeClass('active');
+$('#e_class.nav-link').mousedown(()=>{
+	$('#e_class_li').addClass('active');
+	$('#e_room_li').removeClass('active');
 	$('.navbar').css({'border-bottom':'2px solid #C5CB4B'});
 	$('#e_room_contents').addClass('nodisplay');
 	$('#e_class_contents').removeClass('nodisplay');
