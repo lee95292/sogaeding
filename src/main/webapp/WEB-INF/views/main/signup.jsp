@@ -58,7 +58,7 @@
 			<!-- type별 content내용 -->
 			<div class="content_form">
 				<form id="memberForm" name="memberForm" method="POST" action="/member/register">
-					<input type="text" id="m_type" name="m_type" style="display:none;" disable >
+					<input type="text" id="m_type" name="userType" style="display:none;" disable >
 					<!--  이름, 성별, 생년월일 -->
 					<!--  이름, 성별, 생년월일 -->
 					<!--  이름, 성별, 생년월일 -->
@@ -73,7 +73,7 @@
 									<span id="nameLabel">이름</span>
 								</th>
 								<td>
-									<input type="text" id="name" class="w150 han" name="name" required>
+									<input type="text" id="name" class="w150 han" name="userName" required>
 								</td>
 							</tr>
 							<tr>

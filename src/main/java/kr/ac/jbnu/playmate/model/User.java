@@ -42,16 +42,9 @@ public class User extends BaseEntity{
 	@NotNull
 	private String userType;
 	
+	////get,setter.///
 	
-
-	public String getUserType() {
-		return userType;
-	}
-
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
-
+	
 	public String getUserEmail() {
 		return userEmail;
 	}
@@ -99,5 +92,15 @@ public class User extends BaseEntity{
 	public void setClassId(Class classId) {
 		this.classId = classId;
 	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
+
+	
 	
 }
