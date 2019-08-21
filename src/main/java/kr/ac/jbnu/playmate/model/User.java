@@ -3,14 +3,20 @@ package kr.ac.jbnu.playmate.model;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-@MappedSuperclass
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
+@Entity
+@Table(name="user")
 public class User extends BaseEntity{
 	
 	@Column(name="user_email")
@@ -34,7 +40,7 @@ public class User extends BaseEntity{
 	private LocalDate birthDate;
 	
 	//교장은 0반에 소속
-	@JoinColumn(name = "id")
+	@JoinColumn(name = "class_id")
 	@ManyToOne()
 	private Class classId;
 	
@@ -44,63 +50,6 @@ public class User extends BaseEntity{
 	
 	////get,setter.///
 	
-	
-	public String getUserEmail() {
-		return userEmail;
-	}
-
-	public void setUserEmail(String userEmail) {
-		this.userEmail = userEmail;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getGender() {
-		return gender;
-	}
-
-	public void setGender(String gender) {
-		this.gender = gender;
-	}
-
-	public LocalDate getBirthDate() {
-		return birthDate;
-	}
-
-	public void setBirthDate(LocalDate birthDate) {
-		this.birthDate = birthDate;
-	}
-
-	public Class getClassId() {
-		return classId;
-	}
-
-	public void setClassId(Class classId) {
-		this.classId = classId;
-	}
-
-	public String getUserType() {
-		return userType;
-	}
-
-	public void setUserType(String userType) {
-		this.userType = userType;
-	}
-
 	
 	
 }

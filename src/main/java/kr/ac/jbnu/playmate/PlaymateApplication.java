@@ -13,10 +13,7 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 
 //DB 설정하지 않은 상태 => 설정 후 삭제 
-@ComponentScan(basePackages  = {"kr.ac.jbnu.playmate"})
 @SpringBootApplication
-@EnableJpaRepositories(basePackages = {"kr.ac.jbnu.playmate.repository"})
-@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
 public class PlaymateApplication {
 
 	public static void main(String[] args) {
