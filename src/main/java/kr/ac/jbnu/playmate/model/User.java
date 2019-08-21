@@ -23,6 +23,10 @@ public class User extends BaseEntity{
 	@NotNull
 	private String userEmail;
 	
+	@Column(name="login_id")
+	@NotNull
+	private String loginId;
+	
 	@Column (name="user_name")
 	@NotNull
 	private String userName;
@@ -36,7 +40,7 @@ public class User extends BaseEntity{
 	private String gender;
 	
 	@Column(name="birth_date")
-	@NotNull @DateTimeFormat(pattern="yyyy/mm/dd")
+	@DateTimeFormat(pattern="yyyy/mm/dd")
 	private LocalDate birthDate;
 	
 	//교장은 0반에 소속
@@ -44,11 +48,83 @@ public class User extends BaseEntity{
 	@ManyToOne()
 	private Class classId;
 	
+	/*
+	 * user type
+	 * 1. ADMIN
+	 * 2. TEACHER
+	 * 3. USER
+	 * */
 	@Column(name = "user_type")
 	@NotNull
 	private String userType;
+
+	
+	public String getLoginId() {
+		return loginId;
+	}
+
+	public void setLoginId(String loginId) {
+		this.loginId = loginId;
+	}
+
+	public String getUserEmail() {
+		return userEmail;
+	}
+
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public LocalDate getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Class getClassId() {
+		return classId;
+	}
+
+	public void setClassId(Class classId) {
+		this.classId = classId;
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 	
 	////get,setter.///
+	
 	
 	
 	

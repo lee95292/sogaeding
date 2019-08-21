@@ -21,9 +21,5 @@ public class MainController {
 		return "main/main";
 	}
 	
-	@GetMapping("/member/signup")
-	public String signUp(@ModelAttribute User user) {
-		
-		return "main/signup";
-	}
+	
 }

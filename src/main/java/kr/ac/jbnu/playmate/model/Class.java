@@ -15,8 +15,8 @@ import lombok.Setter;
 @Table(name="class")
 public class Class extends BaseEntity{
 	
-	@Column(name="class_name")
-	private String className;
+//	@Column(name="class_name")
+//	private String className;
 	
 	@Column(name="studnet_grade")
 	private Integer studentGrade;
@@ -25,7 +25,7 @@ public class Class extends BaseEntity{
 	private Integer classNumber;
 	
 	@OneToOne
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="teacher_id")
 	private User classTeacher;
 	
 	@ManyToOne
