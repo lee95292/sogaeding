@@ -26,4 +26,9 @@ public class MainController {
 		
 		return "main/signup";
 	}
+	@GetMapping("/class")
+	public String classroom(@ModelAttribute User user) {
+		
+		return "classroom/classroom";
+	}
 }

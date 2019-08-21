@@ -14,20 +14,24 @@ import lombok.Setter;
 @Entity
 @Table(name="class")
 public class Class extends BaseEntity{
-	
-	@Column(name="class_name")
-	private String className;
-	
+//	
+//	@Column(name="class_name")
+//	private String className;
+//	
+	// 학년 
 	@Column(name="studnet_grade")
 	private Integer studentGrade;
 	
+	// 반 
 	@Column(name="class_number")
 	private Integer classNumber;
 	
+	// 고유번호 
 	@OneToOne
 	@JoinColumn(name="user_id")
 	private User classTeacher;
 	
+	//
 	@ManyToOne
 	@JoinColumn(name="school_id")
 	private School school;

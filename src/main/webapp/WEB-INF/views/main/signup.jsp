@@ -293,8 +293,8 @@
 			
 		}
 		
-	//	var form = document.memberForm;
-	//	form.submit();
+	 var form = document.memberForm;
+	 form.submit();
 
 	}
 	// 가입 취소 

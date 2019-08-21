@@ -1,0 +1,35 @@
+.col-sm {
+    height: 50px;
+    border: 0.5px solid #d4dadc;
+    text-align: center;
+    line-height: 50px;
+}
+/* ======== contents ========= */
+#student_menu .row .w-100:first-child .col-sm{
+	font-size:1rem;
+	color:#fff;
+	font-weight:600;
+	background-color:#fab1a0;
+	border-radius: 10px 10px 0 0;
+}
+
+#student_menu .row .w-100:last-child .col-sm{
+	border-radius: 0px 0px 10px 10px;
+}
+#link_sites .row .w-100:first-child .col-sm{
+	font-size:1rem;
+	color:#fff;
+	font-weight:600;
+	background-color:#74b9ff;
+	border-radius: 10px 10px 0 0;
+}
+#link_sites .row .col-sm:nth-last-child(2){
+	border-radius: 0 0 0 10px;
+}
+#link_sites .row .col-sm:nth-last-child(1){
+	border-radius: 0 0 10px 0;
+}
+/* ======== class title ========= */
+#class_title .row .w-100 
+
+/* ======== link sites ========= */
