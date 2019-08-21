@@ -3,39 +3,54 @@ package kr.ac.jbnu.playmate.model;
 import java.time.LocalDate;
 
 import javax.persistence.Column;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-
 @MappedSuperclass
-public class UserEntity extends BaseEntity{
+public class User extends BaseEntity{
 	
 	@Column(name="user_email")
 	@NotNull
-	protected String userEmail;
+	private String userEmail;
 	
 	@Column (name="user_name")
 	@NotNull
-	protected String userName;
+	private String userName;
 	
 	@Column(name="password")
 	@NotNull
-	protected String password;
+	private String password;
 	
 	@Column(name="gender")
 	@NotNull
-	protected String gender;
+	private String gender;
 	
 	@Column(name="birth_date")
 	@NotNull @DateTimeFormat(pattern="yyyy/mm/dd")
-	protected LocalDate birthDate;
+	private LocalDate birthDate;
+	
+	//교장은 0반에 소속
+	@JoinColumn(name = "id")
+	@ManyToOne()
+	private Class classId;
+	
+	@Column(name = "user_type")
+	@NotNull
+	private String userType;
 	
 	
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
+	}
 
 	public String getUserEmail() {
 		return userEmail;
@@ -75,6 +90,14 @@ public class UserEntity extends BaseEntity{
 
 	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
+	}
+
+	public Class getClassId() {
+		return classId;
+	}
+
+	public void setClassId(Class classId) {
+		this.classId = classId;
 	}
 	
 }

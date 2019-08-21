@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -23,8 +24,9 @@ public class Class extends BaseEntity{
 	@Column(name="class_number")
 	private Integer classNumber;
 	
-	@Column(name="class_teacher")
-	private Teacher classTeacher;
+	@OneToOne
+	@JoinColumn(name="user_id")
+	private User classTeacher;
 	
 	@ManyToOne
 	@JoinColumn(name="school_id")
