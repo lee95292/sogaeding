@@ -1,0 +1,50 @@
+#logoTitle {
+		font-family: 'M PLUS Rounded 1c','Basic', sans-serif;
+}
+.container-fluid {
+	font-size:1.9vh;
+}
+#navbarText ul {
+	margin:0 auto;
+}
+#navbarText ul li {
+	margin: 0 20px;
+}
+#logoTitle {
+	margin-left: 0.5rem;
+    font-weight: 700;
+}
+.navbar-brand {
+	    margin-left: 1rem; 
+}
+header {
+	border-bottom: 2px solid #C5CB4B;
+	margin-bottom: 30px;
+}
+.active #e_class{
+	color: #C5CB4B !important;
+}
+.active #e_room{
+	color: #DF6055 !important;
+}
+.navbar-user-select {
+	display: inline-block;
+}
+.navbar-user-select ul {
+	    font-size: 0.8em;
+   		margin: 0 !important;
+}
+.navbar-user-select ul li {
+	margin:0 !important;
+}
+.nodisplay {
+	display:none;
+}
+/* 나중에 지워야 될 코드들 */
+.col {
+	border-right:1px solid #d4dadc;
+}
+.col:last-child {
+	border:none;
+}
+/* ================== */
