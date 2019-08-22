@@ -9,7 +9,7 @@ function menu(obj){
 		if(now!=''){
 			$.ajax({ 
 				type: 'GET' , 
-				url: '/class/'+now , 
+				url: '/class/v/'+now , 
 				dataType : 'html' , 
 				success: function(data) { 
 						$("#main_content_html").html(data);

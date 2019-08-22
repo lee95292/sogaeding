@@ -58,7 +58,7 @@
 			<!-- type별 content내용 -->
 			<div class="content_form">
 				<form id="memberForm" name="memberForm" method="POST" action="/member/register">
-					<input type="text" id="m_type" name="userType" style="display:none;" disable >
+					<input type="text" id="m_type" name="userType" value="${User.userType}" style="display:none;" disable >
 					<!--  이름, 성별, 생년월일 -->
 					<!--  이름, 성별, 생년월일 -->
 					<!--  이름, 성별, 생년월일 -->
@@ -73,7 +73,7 @@
 									<span id="nameLabel">이름</span>
 								</th>
 								<td>
-									<input type="text" id="name" class="w150 han" name="userName" required>
+									<input type="text" id="name" class="w150 han" name="userName" value="${User.userName}" required>
 								</td>
 							</tr>
 							<tr>
@@ -144,7 +144,7 @@
 										<p class="groupId">
 											* 4~12자의 영문소문자 또는 영문소문자 + 숫자를 입력해 주세요.
 											<br><br>
-											<input type="text" id="userId" name="userId" class="w160" style="ime-mode:disabled;" maxlength="12" required>
+											<input type="text" id="userId" name="userId" class="w160" value="${User.loginId}" style="ime-mode:disabled;" maxlength="12" required>
 											<a href="javascript:void(0);" id="dpChk" class="btn_pop dupl" onclick="DubChkId();return false;">중복확인<span>&nbsp;</span></a><br>
 										</p>
 									</td>
@@ -171,7 +171,7 @@
 									</tr>
 									<tr>
 										<th scope="row"><label for="repwd"><span>비밀번호 확인</span></label></th>
-										<td><input type="password" id="repwd" class="w160" maxlength="16" size="30" onchange="Chkpwd()" required> <span class="level" id="password_equal"></span></td>
+										<td><input type="password" id="repwd" class="w160" maxlength="16" size="30" value="${User.password}" onchange="Chkpwd()" required> <span class="level" id="password_equal"></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="mob1"><span id="subEmailTitle">이메일</span></label></th>
@@ -204,7 +204,7 @@
 								<tr>
 									<th scope="row"><label for="sch_nm"><span>학교(기관)명</span></label></th>
 									<td>
-										<input type="text" name="sch_nm" id="sch_nm" class="w160 han" readonly="">
+										<input type="text" name="sch_nm" id="sch_nm" class="w160 han" value="${User.classId.school}" readonly="">
 										<a href="javascript:void(0);" id="btnSearch" class="btn_pop sch" onclick="javascript:viewSchPop(); return false;">학교선택<span>&nbsp;</span></a>
 										<select id="schoolGrade" class="w70" style="display:none">
 											<option value="">선택</option>
@@ -220,11 +220,11 @@
 								<tr id="exsclyybb" style="display:none;">
 									<th scope="row"><label for="exsclyybb"><span>학년/반</span></label></th>
 									<td>
-										<select id="exsclyy" class="w60" style="display:inline-block;">
-											<option value="">선택</option>
+										<select id="exsclyy" class="w60" value="${User.classId.studnet_grade}" style="display:inline-block;">
+											<option value="0">선택</option>
 										</select><label>학년</label>
-										<select id="exsclbb" class="w60" style="display:inline-block;">
-											<option value="">선택</option>
+										<select id="exsclbb"  value="${User.classId.class_number}" class="w60" style="display:inline-block;">
+											<option value="0">선택</option>
 										</select><label>반</label>
 									</td>
 								</tr>
@@ -320,7 +320,7 @@
 			$('#type_student').css({"background-image":"url(/resources/imgs/icon/ic_student.png)",'background-repeat':'no-repeat','background-color':'#fff','color':'rgb(74,166,157)'});
 			$('#exsclyybb').css({"display":"none"});
 			$('#nameLabel').text('이름');
-			$('#m_type').val('admin');
+			$('#m_type').val('1');
 			break;
 		case 'type_teacher':
 			$('#'+id).css({"background-image":"url(/resources/imgs/icon/ic_teacher_on.png)",'background-repeat':'no-repeat','background-color':'rgb(51,125,192)','color':'#fff'});
@@ -328,7 +328,7 @@
 			$('#type_student').css({"background-image":"url(/resources/imgs/icon/ic_student.png)",'background-repeat':'no-repeat','background-color':'#fff','color':'rgb(74,166,157)'});
 			$('#exsclyybb').css({"display":""});
 			$('#nameLabel').text('이름');
-			$('#m_type').val('teacher');
+			$('#m_type').val('2');
 			break;
 		case 'type_student':
 			$('#'+id).css({"background-image":"url(/resources/imgs/icon/ic_student_on.png)",'background-repeat':'no-repeat','background-color':'rgb(74,166,157)','color':'#fff'});
@@ -336,7 +336,7 @@
 			$('#type_teacher').css({"background-image":"url(/resources/imgs/icon/ic_teacher.png)",'background-repeat':'no-repeat','background-color':'#fff','color':'rgb(51,125,192)'});
 			$('#exsclyybb').css({"display":""});
 			$('#nameLabel').text('학생 이름');
-			$('#m_type').val('student');
+			$('#m_type').val('3');
 			break;
 		}
 	};

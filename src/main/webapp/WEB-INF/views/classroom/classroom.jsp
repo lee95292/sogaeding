@@ -24,39 +24,7 @@
 	 <script src="/resources/js/class/main.js"></script>
 </head>
 <body>
-        <!-- header bar -->
-        <header class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">
-                    <img src="/resources/imgs/icon/ic_logo.png" width="50px" height="50px">
-                    <span id="logoTitle">PlayMate</span>
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarText">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active" id="e_class_li">
-                      <a class="nav-link" href="#" id="e_class">e 교실</a>
-                    </li>
-                    <li class="nav-item" id="e_room_li">
-                      <a class="nav-link" href="#" id="e_room">e 강의실</a>
-                    </li>
-                  </ul>
-                  <span class="navbar-text">
-                    <img src="/resources/imgs/icon/ic_man.png" width="40px" height="40px">
-                    <div class="navbar-user-select">
-                    	<ul class="navbar-nav mr-auto">
-                    		<li class="nav-item">	
-		                      <a class="nav-link" href="#">내정보</a>
-		                    </li>
-		                    <li class="nav-item">
-		                      <a class="nav-link" href="#">로그아웃</a>
-		                    </li>
-		                  </ul> 
-                    </div>
-                  </span>
-                </div>
-        </header>
+        <jsp:include page="../modules/header_modules.jsp" flush="false"/>
         <!-- container -->
         <div id="e_class_contents"class="container-fluid">
 			 <div class="row">
@@ -93,6 +61,8 @@
 			    </div>
 			  </div>
 		</div>
+		<!--  user-info -->
+        <div id="user-info" class="container-fluid" class="padding:0 15px;"></div>
 </body>
 <script>
 //메뉴 버튼 클릭 
@@ -100,6 +70,10 @@ $(document).ready(()=>{
 	var maxheight = $(window).height()*5/6;
 	$('.col').css({'height':maxheight});
 	
+});
+$(window).resize(function(){
+	var maxheight = $(window).height()*5/6;
+	$('.col').css({'height':maxheight});
 });
 $('#e_room.nav-link').mousedown(()=>{
 	$('#e_room_li').addClass('active');

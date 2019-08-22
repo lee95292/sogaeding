@@ -122,6 +122,13 @@ public class User extends BaseEntity{
 	public void setUserType(String userType) {
 		this.userType = userType;
 	}
+
+	@Override
+	public String toString() {
+		return "User [userEmail=" + userEmail + ", loginId=" + loginId + ", userName=" + userName + ", password="
+				+ password + ", gender=" + gender + ", birthDate=" + birthDate + ", classId=" + classId + ", userType="
+				+ userType + "]";
+	}
 	
 	////get,setter.///
 	
