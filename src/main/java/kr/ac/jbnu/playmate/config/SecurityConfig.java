@@ -42,12 +42,43 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		//허용되는 URL Mapping
 		web.ignoring()
 		.antMatchers("/resources/**",
-					"/main/**");
+					"/**");
+
 	}
 	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		
+		http
+        // ROLE_USER, ROLE_ADMIN으로 권한 분리 유알엘 정의
+		.authorizeRequests()
+//        .antMatchers("/**").permitAll()
+//        .antMatchers("/student/**").access("ROLE_USER")
+//        .antMatchers("/class/**").access("ROLE_USER")
+//        .antMatchers("/teacher/**").access("ROLE_TEACHER")
+//        .antMatchers("/admin/**").access("ROLE_ADMIN")
+        .antMatchers("/**").permitAll()
+        .anyRequest().permitAll()
+      .and()    
+        // 로그아웃 관련 설정
+        .logout().logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
+        .logoutSuccessUrl("/")
+        .invalidateHttpSession(true)
+        .and()
+        //로그인 설정
+      	.formLogin()
+        .loginPage("/member/login").loginProcessingUrl("/do_login")
+        .defaultSuccessUrl("/")
+        .failureHandler(authFailureHandler)
+        .successHandler(authSuccessHandler)
+        .usernameParameter("id")
+        .passwordParameter("password")
+    .and()
+        // csrf 사용유무 설정
+        // csrf 설정을 사용하면 모든 request에 csrf 값을 함께 전달해야한다.
+        .csrf()
+    .and()
+        // 로그인 프로세스가 진행될 provider
+        .authenticationProvider(authProvider);
 		
 	}
 	
