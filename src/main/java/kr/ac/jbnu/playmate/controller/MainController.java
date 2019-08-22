@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.ac.jbnu.playmate.model.Class;
 import kr.ac.jbnu.playmate.model.School;
 import kr.ac.jbnu.playmate.model.User;
-import kr.ac.jbnu.playmate.repository.ArticleRepository;
 import kr.ac.jbnu.playmate.repository.ClassRepository;
 import kr.ac.jbnu.playmate.repository.SchoolRepository;
 import kr.ac.jbnu.playmate.repository.UserRepository;
@@ -35,12 +34,10 @@ public class MainController {
 	SchoolRepository schoolRepository;
 	@Autowired
 	ArticleServiceImpl articleService;
-
+	@Autowired
 	private UserRepository userRepository;
 	
-	public MainController (UserRepository userRepository) {
-		this.userRepository= userRepository;
-	}
+	
 	// main page
 	@GetMapping("/")
 	public String main(Model model,Principal principal) {

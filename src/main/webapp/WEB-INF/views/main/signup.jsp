@@ -166,12 +166,12 @@
 									    2. 아이디, 생년월일, 전화번호 등 개인정보와 관련된 숫자, 연속된 숫자, 반복된 문자 등 다른 사람이 쉽게 알아낼 수 있는 비밀번호는 개인정보 유출의 위험이 높으므로 사용하지 않는 것이 좋습니다.
 									</p>
 											<br>
-											<input type="password" id="password" name="password" class="w160" maxlength="16" size="30" required>
+											<input type="password" id="password" name="password" class="w160" maxlength="16" size="30" required autocomplete="off">
 										</td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="repwd"><span>비밀번호 확인</span></label></th>
-										<td><input type="password" id="repwd" class="w160" maxlength="16" size="30" value="${User.password}" onchange="Chkpwd()" required> <span class="level" id="password_equal"></span></td>
+										<td><input type="password" id="repwd" class="w160" maxlength="16" size="30" value="${User.password}" onchange="Chkpwd()" required autocomplete="off"> <span class="level" id="password_equal"></span></td>
 									</tr>
 									<tr>
 										<th scope="row"><label for="mob1"><span id="subEmailTitle">이메일</span></label></th>

@@ -1,7 +1,6 @@
 package kr.ac.jbnu.playmate.controller;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,14 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import ch.qos.logback.core.joran.action.ActionUtil.Scope;
 import kr.ac.jbnu.playmate.model.Class;
-import kr.ac.jbnu.playmate.model.School;
 import kr.ac.jbnu.playmate.model.User;
 import kr.ac.jbnu.playmate.repository.ClassRepository;
 import kr.ac.jbnu.playmate.repository.SchoolRepository;
 import kr.ac.jbnu.playmate.repository.UserRepository;
-import kr.ac.jbnu.playmate.service.impl.UserServiceImpl;
 
 @Controller
 public class UserController {
@@ -33,12 +29,11 @@ public class UserController {
 	ClassRepository classRepository;
 	@Autowired
 	SchoolRepository schoolRepository;
+	@Autowired
 	private UserRepository userRepository;
-	private UserServiceImpl userService;
+
 	
-	public UserController(UserRepository userRepository) {
-		this.userRepository= userRepository;
-	}
+	
 	
 	/*
 	 * 회원가입 로직

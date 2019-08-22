@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.apache.catalina.authenticator.SpnegoAuthenticator.AuthenticateAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,8 +16,6 @@ import org.springframework.stereotype.Component;
 
 import kr.ac.jbnu.playmate.model.User;
 import kr.ac.jbnu.playmate.util.MyAuthentication;
-
-import java.lang.Exception;
 
 @Component("authProvider")
 public class AuthProvider implements AuthenticationProvider{
