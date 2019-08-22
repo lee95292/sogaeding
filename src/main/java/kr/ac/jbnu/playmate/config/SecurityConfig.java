@@ -40,9 +40,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	public void configure(WebSecurity web) throws Exception {	
 		//허용되는 URL Mapping
-		web.ignoring()
-		.antMatchers("/resources/**",
-					"/**");
+//		web.ignoring()
+////		.antMatchers("/resources/**",
+////					"/**");
 
 	}
 	
@@ -50,15 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity http) throws Exception {
 		http
         // ROLE_USER, ROLE_ADMIN으로 권한 분리 유알엘 정의
-		.authorizeRequests()
-//        .antMatchers("/**").permitAll()
-//        .antMatchers("/student/**").access("ROLE_USER")
-//        .antMatchers("/class/**").access("ROLE_USER")
-//        .antMatchers("/teacher/**").access("ROLE_TEACHER")
-//        .antMatchers("/admin/**").access("ROLE_ADMIN")
-        .antMatchers("/**").permitAll()
-        .anyRequest().permitAll()
-      .and()    
         // 로그아웃 관련 설정
         .logout().logoutRequestMatcher(new AntPathRequestMatcher("/member/logout"))
         .logoutSuccessUrl("/")
@@ -72,7 +63,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         .successHandler(authSuccessHandler)
         .usernameParameter("id")
         .passwordParameter("password")
-        .permitAll()
 //    .and()
 //        // csrf 사용유무 설정
 //        // csrf 설정을 사용하면 모든 request에 csrf 값을 함께 전달해야한다.

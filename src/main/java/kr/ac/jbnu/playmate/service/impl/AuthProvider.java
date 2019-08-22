@@ -17,6 +17,8 @@ import org.springframework.stereotype.Component;
 import kr.ac.jbnu.playmate.model.User;
 import kr.ac.jbnu.playmate.util.MyAuthentication;
 
+import java.lang.Exception;
+
 @Component("authProvider")
 public class AuthProvider implements AuthenticationProvider{
 
@@ -31,21 +33,23 @@ public class AuthProvider implements AuthenticationProvider{
 		String id = authentication.getName();
 		String password = authentication.getCredentials().toString();//passwordEncoder.encode(authentication.getCredentials().toString());
 		System.out.println("\n\n\nid:"+id+" password:"+password);
-		String userType;
+		String userType="USER";
 		Optional<User> user = userService.getUserByLoginId(id);
+		User nullOrUser=user.orElse(new User());
 		
-		if(null == user  /*TODO: ||비밀번호 검증*/) {
+		if(null == nullOrUser.getId()  /*TODO: ||비밀번호 검증*/) {
 			return null;
 		}else {
-			userType=user.get().getUserType();
+			userType=nullOrUser.getUserType();
+			
 		}
 		List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
         
         // 로그인한 계정에게 권한 부여
-        grantedAuthorityList.add(new SimpleGrantedAuthority(userType));
+        grantedAuthorityList.add(new SimpleGrantedAuthority("User"));
         
 
-		return new MyAuthentication(id,password,grantedAuthorityList,user.get());
+		return new MyAuthentication(id,password,grantedAuthorityList,user.orElse(new User()));
 	}
 
 	@Override
