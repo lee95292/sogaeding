@@ -21,7 +21,7 @@
             </div>
             <!--  login id/pw -->
             <div class="login_idpw">
-            	<form action="/login.do" method="POST">
+            	<form action="/do_login" method="POST">
             		<div class="login_item">
            				<input id="input_id" type="text" name="id" />		
             		</div>

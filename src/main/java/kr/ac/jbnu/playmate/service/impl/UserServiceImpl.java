@@ -25,4 +25,9 @@ public class UserServiceImpl {
 	public boolean userLogin(String loginId,String password) {
 		return userRepository.findByLoginIdAndPassword(loginId, password)==null? true:false;
 	}
+	
+	@Transactional
+	public void joinUser(User user) {
+		userRepository.save(user);
+	}
 }
