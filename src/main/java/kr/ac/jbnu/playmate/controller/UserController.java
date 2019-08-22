@@ -2,6 +2,8 @@ package kr.ac.jbnu.playmate.controller;
 
 import java.time.LocalDate;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,6 +22,9 @@ import kr.ac.jbnu.playmate.service.impl.UserServiceImpl;
 public class UserController {
 	
 	
+	@Autowired
+	PasswordEncoder passwordEncoder;
+	
 	private UserRepository userRepository;
 	private UserServiceImpl userService;
 	
@@ -34,7 +39,7 @@ public class UserController {
 	/*
 	 * 회원가입 로직
 	 * */
-	@PostMapping("/register")
+	@PostMapping("/member/register")
 	public RedirectView  registerUser(
 			RedirectAttributes attributes,
 			@ModelAttribute("User") User user,
@@ -69,7 +74,7 @@ public class UserController {
 			System.out.println(user.toString());
 			
 			
-			//System.out.println(user.getGender()+user.getUserEmail()+"debbbb\n\n\n");
+			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			userRepository.save(user);
 			
 			return new RedirectView("/");

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.catalina.authenticator.SpnegoAuthenticator.AuthenticateAction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -28,28 +29,29 @@ public class AuthProvider implements AuthenticationProvider{
 	@Autowired
 	PasswordEncoder passwordEncoder;
 	
+	
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-		String id = authentication.getName();
-		String password = authentication.getCredentials().toString();//passwordEncoder.encode(authentication.getCredentials().toString());
-		System.out.println("\n\n\nid:"+id+" password:"+password);
-		String userType="USER";
+		String id = authentication.getName();		
 		Optional<User> user = userService.getUserByLoginId(id);
 		User nullOrUser=user.orElse(new User());
 		
-		if(null == nullOrUser.getId()  /*TODO: ||비밀번호 검증*/) {
+		boolean pwMatch=passwordEncoder.matches(authentication.getCredentials().toString(),nullOrUser.getPassword());
+		if(null == nullOrUser.getId()  || !pwMatch) {
 			return null;
-		}else {
-			userType=nullOrUser.getUserType();
-			
 		}
 		List<GrantedAuthority> grantedAuthorityList = new ArrayList<>();
+        String userType=nullOrUser.getUserType();
         
         // 로그인한 계정에게 권한 부여
-        grantedAuthorityList.add(new SimpleGrantedAuthority("User"));
+        if(userType.equals("ADMIN")) {
+    		grantedAuthorityList.add(new SimpleGrantedAuthority("ADMIN"));
+        }else if(userType.equals("TEACHER")) {
+    		grantedAuthorityList.add(new SimpleGrantedAuthority("TEACHER"));
+        }
+        grantedAuthorityList.add(new SimpleGrantedAuthority("USER"));
         
-
-		return new MyAuthentication(id,password,grantedAuthorityList,user.orElse(new User()));
+		return new MyAuthentication(id,nullOrUser.getPassword(),grantedAuthorityList,nullOrUser);
 	}
 
 	@Override

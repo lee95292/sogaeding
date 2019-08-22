@@ -8,8 +8,9 @@ import org.springframework.security.core.GrantedAuthority;
 import kr.ac.jbnu.playmate.model.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 
-@Data
+@Data 
 @EqualsAndHashCode(callSuper = false)
 public class MyAuthentication extends UsernamePasswordAuthenticationToken{
 	private static final long  serialVersionUID =1L;
@@ -24,5 +25,17 @@ public class MyAuthentication extends UsernamePasswordAuthenticationToken{
 	    this.password = password;
 	    this.user=user;
 	  }
+
+	public String getUserId() {
+		return userId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public User getUser() {
+		return user;
+	}
 	
 }

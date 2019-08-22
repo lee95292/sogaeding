@@ -16,8 +16,6 @@ public class AuthFailureHandler extends SimpleUrlAuthenticationFailureHandler{
 	public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response,
 			AuthenticationException exception) throws IOException, ServletException {
 		response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-		response.getWriter().print("<script>alert('login failed')</script>");
-		response.getWriter().flush();
 		response.sendRedirect("/");
 	}
 }

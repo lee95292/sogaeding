@@ -1,5 +1,6 @@
 package kr.ac.jbnu.playmate.service.impl;
 
+import java.security.Principal;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -29,5 +30,11 @@ public class UserServiceImpl {
 	@Transactional
 	public void joinUser(User user) {
 		userRepository.save(user);
+	}
+	
+	@Transactional
+	public User getUserByPrincipal(Principal principal) {
+		String userId=principal.getName();
+		return getUserByLoginId(userId).orElse(new User());
 	}
 }
