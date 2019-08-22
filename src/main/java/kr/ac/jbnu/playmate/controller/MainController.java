@@ -67,7 +67,6 @@ public class MainController {
 	public String classroom(MyAuthentication auth,Model model) {
 		User user =auth.getUser();
 		Class myclass=user.getClassId();
-		//articleService.getArticles(myclass.getId(), "KEYWORD");
 		return "classroom/classroom";
 	}
 	@GetMapping("/class/v/{view_id}")
@@ -84,7 +83,9 @@ public class MainController {
 	@ResponseBody
 	public String test(MyAuthentication auth) {
 		User user = auth.getUser();
-		return user.getClassId().toString();
+		Class myclass= user.getClassId();
+		
+		return articleService.getArticles(myclass.getId(), "KEYWORD").toString();
 		
 	}
 	@GetMapping("/genDefault")
