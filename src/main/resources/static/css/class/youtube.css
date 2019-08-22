@@ -7,9 +7,27 @@
     overflow: hidden;
     overflow-x: scroll;
 }
+#youtubeList .reco, .ko , .his {
+	translate:1s;
+}
 #youtubeList .head-title {
 	    padding-bottom: 10px;
    		 border-bottom: 1.3px solid #d4dadc;
+}
+#youtubeList .recomend-btn-list {
+	text-align: center;
+}
+#youtubeList .recomend-btn-list .re-btn {
+	border: 1px solid #d4dadc ;
+    width: 60px;
+    margin: 0 10px;
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius:5px;
+}
+#youtubeList .recomend-btn-list .on {
+	color:#fff;
+	background: #DF6055;
 }
 #youtubeList .list .list-contents{
 	height:300px;

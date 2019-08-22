@@ -2,6 +2,8 @@ package kr.ac.jbnu.playmate.controller;
 
 import java.security.Principal;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.ac.jbnu.playmate.model.User;
 import kr.ac.jbnu.playmate.repository.UserRepository;
 import kr.ac.jbnu.playmate.service.impl.UserServiceImpl;
+import kr.ac.jbnu.playmate.util.MyAuthentication;
 
 @Controller
 @EnableGlobalMethodSecurity(securedEnabled = true)
@@ -32,7 +35,7 @@ public class MainController {
 	public String main(Model model,Principal principal) {
 		if(principal!=null) {
 			User user = userService.getUserByPrincipal(principal);
-			model.addAttribute(user);
+			model.addAttribute("User", user);
 			return "classroom/classroom";
 		}
 			
@@ -40,13 +43,14 @@ public class MainController {
 	}
 	// user 정보 
 	@GetMapping("/user")
-	public String userInfo(@ModelAttribute User user) {
-		return "main/user-info";
-	}
+	   public String userInfo(MyAuthentication auth,Model model) {
+	      model.addAttribute("User",auth.getUser());
+	      return "main/user-info";
+	   }
 	
 	@GetMapping("/class")
-	public String classroom(@ModelAttribute User user) {
-		
+	public String classroom(MyAuthentication auth,Model model) {
+		 model.addAttribute("User",auth.getUser());
 		return "classroom/classroom";
 	}
 	@GetMapping("/class/v/{view_id}")
@@ -58,7 +62,7 @@ public class MainController {
 		return path2;	
 	}
 	
-	
+	// TEST CASE
 	@GetMapping("/kk")
 	@ResponseBody
 	public String test(Principal principal) {
