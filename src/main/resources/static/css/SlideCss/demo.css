@@ -5,7 +5,7 @@
   while waiting for document.ready().
  */
 .backgroundTransition {
-  background-image: url('https://unsplash.it/1920/1400?image=933');
+  background-image: url('/resources/imgs/background/background-01.jpg');
 }
 
 /*
