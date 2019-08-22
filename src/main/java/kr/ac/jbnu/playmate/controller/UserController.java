@@ -63,7 +63,7 @@ public class UserController {
 			classroom.setStudentGrade(Integer.parseInt(exsclyy));
 			classroom.setClassNumber(Integer.parseInt(exsclbb));
 			
-			
+			user.setClassId(classroom);
 			user.setBirthDate(birthDate);
 			user.setGender(gender);
 			user.setUserEmail(email);

@@ -1,13 +1,24 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div id="youtubeList">
 	<div class="recomend-btn-list">
 		<!-- 추천키워드 제공 -->
-		<c:forEach var="D" begin="1" end="10" >
-			 	<div class="re-btn" onclick="check_re_btn(this);" id="re-btn-<c:out value="${D}"/>"><c:out value="${D}"/></div>
+		<%
+			ArrayList<String> list = new ArrayList<String>();
+			list.add("국어");
+			list.add("진로");
+			list.add("가정");
+			list.add("대학교");
+			list.add("중학수학");
+			list.add("지리");
+			list.add("언어");
+			for(String x : list){
+		%>
+			 	<div class="re-btn" onclick="check_re_btn(this);" id="re-btn-<%= x %>"><%= x %></div>
 	
-		 </c:forEach>	
+		<%} %>
 	</div>
 	<h5 class="head-title">추천채널</h5>
 	<div class="list">
@@ -60,7 +71,7 @@ function transYT(t){
 	console.log("========= yt start ========");
 	$('.reco').empty();
 	var y = t;
-	let allData = { "key":k_ap_i,"channelId":EBS, "part":"snippet","q":y, "maxResult":"20"};
+	let allData = { "key":k_ap_i,"channelId":EBS, "part":"snippet","q":y, "maxResult":"5"};
 
 	$.ajax({
 		  url : "https://www.googleapis.com/youtube/v3/search",
@@ -88,7 +99,7 @@ function transYT(t){
 </script>
 <script>
 let recommend="";
-const k_ap_i="AIzaSyCv263ags5Gbzqf-ch1UqP2wMIEQaq2X6U";
+const k_ap_i="AIzaSyBhkeu38xXMwrK7W0feKPCaTj7KjTHM7fg";
 //const k_ap_i="AIzaSyCjzIgNpl922t98PL7dAHIFenWBlwKV8mM";
 const EBS = "UCl_tB4AqPkkxuYcJQHz6dMw";
 
