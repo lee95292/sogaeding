@@ -9,21 +9,21 @@
 	    </div>
 	   </div>
 	    <div class="col-sm">
-	    	<a href="#" >학교 공지사항</a>
+	    	<a href="#" onclick="menu(this)" id="1" >가정통신문</a>
 	    </div>
 	    <div class="col-sm">
-	    		<a href="#">학교 일정</a>
+	    		<a href="#" onclick="menu(this)" id="2" >학교 일정</a>
 	    </div>
 	    <div class="w-100"></div>
 	    	<div class="col-sm">
-	    		<a href="#">학급 공지사항</a>
+	    		<a href="#" onclick="menu(this)" id="3">학급 공지사항</a>
 	    	</div>
 	   		<div class="col-sm">
-	   			<a href="#">과제방</a>
+	   			<a href="#" onclick="menu(this)" id="4">과제방</a>
 	   		</div>
 	   	<div class="w-100">
 	   		<div class="col-sm">
-	    		<a href="#">성적확인</a>
+	    		<a href="#" onclick="menu(this)" id="5">성적확인</a>
 	    	</div><!-- 
 	   		<div class="col-sm">
 	   			<a href="#"></a>

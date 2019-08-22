@@ -16,6 +16,10 @@
 	line-height:40px !important;
 }
 /* ======== contents ========= */
+#student_menu .on , #teacher_menu .on {
+	background: rgb(85,186,127);
+    color: #fff;
+}
 #student_menu .row .w-100:first-child .col-sm{
 	/* font-size:1rem; */
 	/* color:#fff; */

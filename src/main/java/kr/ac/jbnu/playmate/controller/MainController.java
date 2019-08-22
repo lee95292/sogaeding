@@ -26,4 +26,12 @@ public class MainController {
 		
 		return "classroom/classroom";
 	}
+	@GetMapping("/class/{view_id}")
+	public String cview(String view_id) {
+		System.out.println(view_id);
+		String path1 = "classroom/cview";
+		String path2 = path1.concat(view_id);
+		return path2;
+		
+	}
 }
