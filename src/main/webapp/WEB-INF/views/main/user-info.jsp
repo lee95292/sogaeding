@@ -13,9 +13,9 @@
 	
 						<c:choose>
 				
-				<c:when test="${User.userType eq '1'}"> 관리자 </c:when>
+				<c:when test="${User.userType eq 'ADMIN'}"> 관리자 </c:when>
 				
-				<c:when test="${User.userType eq '2'}"> 선생님 </c:when>
+				<c:when test="${User.userType eq 'TEACHER'}"> 선생님 </c:when>
 				
 				<c:otherwise> 학생 </c:otherwise>
 				

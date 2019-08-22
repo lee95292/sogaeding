@@ -12,10 +12,6 @@ import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter @Setter
 @Entity
 @Table(name="user")
 public class User extends BaseEntity{

@@ -14,8 +14,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
+import ch.qos.logback.core.joran.action.ActionUtil.Scope;
 import kr.ac.jbnu.playmate.model.Class;
+import kr.ac.jbnu.playmate.model.School;
 import kr.ac.jbnu.playmate.model.User;
+import kr.ac.jbnu.playmate.repository.ClassRepository;
+import kr.ac.jbnu.playmate.repository.SchoolRepository;
 import kr.ac.jbnu.playmate.repository.UserRepository;
 import kr.ac.jbnu.playmate.service.impl.UserServiceImpl;
 
@@ -25,7 +29,10 @@ public class UserController {
 	
 	@Autowired
 	PasswordEncoder passwordEncoder;
-	
+	@Autowired
+	ClassRepository classRepository;
+	@Autowired
+	SchoolRepository schoolRepository;
 	private UserRepository userRepository;
 	private UserServiceImpl userService;
 	
@@ -54,21 +61,16 @@ public class UserController {
 			@RequestParam(value = "exsclyy", required=false,defaultValue = "1") String exsclyy,
 			@RequestParam(value = "exsclyy", required=false,defaultValue = "1") String exsclbb
 			) {
-			
+
 			String email = email1.concat("@").concat(email2);
 			
 			LocalDate birthDate = LocalDate.of(Integer.parseInt(birthY),Integer.parseInt(birthM),Integer.parseInt(birthD));
-			Class classroom = new Class();
 			
-			classroom.setStudentGrade(Integer.parseInt(exsclyy));
-			classroom.setClassNumber(Integer.parseInt(exsclbb));
+			user.setClassId(classRepository.findById(2).orElse(new Class()));
 			
-			user.setClassId(classroom);
 			user.setBirthDate(birthDate);
 			user.setGender(gender);
 			user.setUserEmail(email);
-			System.out.println(classroom.toString());
-			System.out.println(user.toString());
 			
 			
 			user.setPassword(passwordEncoder.encode(user.getPassword()));

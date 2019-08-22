@@ -34,10 +34,10 @@ public class Article extends BaseEntity{
 	@JoinColumn(name="class_id")
 	private Class myclass;
 	
-	@OneToOne
-	@JoinColumn(name="author_id")
-	private User author;
-	
+//	@OneToOne
+//	@JoinColumn(name="author_id")
+//	private User author;
+//	
 	@Column(name="content")
 	private String content;
 	
@@ -63,13 +63,13 @@ public class Article extends BaseEntity{
 		this.myclass = myclass;
 	}
 
-	public User getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(User author) {
-		this.author = author;
-	}
+//	public User getAuthor() {
+//		return author;
+//	}
+//
+//	public void setAuthor(User author) {
+//		this.author = author;
+//	}
 
 	public String getContent() {
 		return content;

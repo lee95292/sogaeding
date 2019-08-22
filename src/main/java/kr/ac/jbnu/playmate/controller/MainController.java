@@ -3,22 +3,18 @@ package kr.ac.jbnu.playmate.controller;
 import java.security.Principal;
 import java.time.LocalDate;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.jbnu.playmate.model.Class;
 import kr.ac.jbnu.playmate.model.School;
 import kr.ac.jbnu.playmate.model.User;
+import kr.ac.jbnu.playmate.repository.ArticleRepository;
 import kr.ac.jbnu.playmate.repository.ClassRepository;
 import kr.ac.jbnu.playmate.repository.SchoolRepository;
 import kr.ac.jbnu.playmate.repository.UserRepository;
@@ -27,7 +23,6 @@ import kr.ac.jbnu.playmate.service.impl.UserServiceImpl;
 import kr.ac.jbnu.playmate.util.MyAuthentication;
 
 @Controller
-@EnableGlobalMethodSecurity(securedEnabled = true)
 public class MainController {
 
 	@Autowired
@@ -40,6 +35,7 @@ public class MainController {
 	SchoolRepository schoolRepository;
 	@Autowired
 	ArticleServiceImpl articleService;
+
 	private UserRepository userRepository;
 	
 	public MainController (UserRepository userRepository) {
@@ -57,16 +53,20 @@ public class MainController {
 		return "main/main";
 	}
 	// user 정보 
+	
 	@GetMapping("/user")
 	   public String userInfo(MyAuthentication auth,Model model) {
 	      model.addAttribute("User",auth.getUser());
 	      return "main/user-info";
 	   }
 	
+	//@Secured("USER")
 	@GetMapping("/class")
 	public String classroom(MyAuthentication auth,Model model) {
 		User user =auth.getUser();
 		Class myclass=user.getClassId();
+		model.addAttribute("myclass", myclass);
+		
 		return "classroom/classroom";
 	}
 	@GetMapping("/class/v/{view_id}")
@@ -79,14 +79,13 @@ public class MainController {
 	}
 	
 	// TEST CASE
-	@GetMapping("/kk")
 	@ResponseBody
+	@GetMapping("/kk")
 	public String test(MyAuthentication auth) {
 		User user = auth.getUser();
 		Class myclass= user.getClassId();
-		
-		return articleService.getArticles(myclass.getId(), "KEYWORD").toString();
-		
+		//return myclass.getId().toString();
+		return articleService.getArticles(myclass, "KEYWORD").toString();
 	}
 	@GetMapping("/genDefault")
 	@ResponseBody

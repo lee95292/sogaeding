@@ -88,6 +88,7 @@
     top: 20px;
     position: relative;
     right: 20px;
+   
 ">올리기</div>
 
 </div>
