@@ -46,6 +46,54 @@ public class Article extends BaseEntity{
 	
 	@UpdateTimestamp
 	LocalDateTime updateDate;
+
+	public String getArticleType() {
+		return articleType;
+	}
+
+	public void setArticleType(String articleType) {
+		this.articleType = articleType;
+	}
+
+	public Class getMyclass() {
+		return myclass;
+	}
+
+	public void setMyclass(Class myclass) {
+		this.myclass = myclass;
+	}
+
+	public User getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public LocalDate getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(LocalDate createDate) {
+		this.createDate = createDate;
+	}
+
+	public LocalDateTime getUpdateDate() {
+		return updateDate;
+	}
+
+	public void setUpdateDate(LocalDateTime updateDate) {
+		this.updateDate = updateDate;
+	}
 	
 	
 	//@Column(name="s")

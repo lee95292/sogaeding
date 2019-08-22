@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -45,7 +46,7 @@ public class User extends BaseEntity{
 	
 	//교장은 0반에 소속
 	@JoinColumn(name = "class_id")
-	@ManyToOne()
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Class classId;
 	
 	/*

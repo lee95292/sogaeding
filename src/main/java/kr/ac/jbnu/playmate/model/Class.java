@@ -2,6 +2,7 @@ package kr.ac.jbnu.playmate.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
@@ -33,12 +34,12 @@ public String toString() {
 	private Integer classNumber;
 	
 	// 고유번호 
-	@OneToOne
+	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="teacher_id")
 	private User classTeacher;
 	
 	//
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="school_id")
 	private School school;
 

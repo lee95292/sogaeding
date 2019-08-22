@@ -7,5 +7,6 @@ import kr.ac.jbnu.playmate.model.Article;
 
 @Repository
 public interface ArticleRepository extends CrudRepository<Article, Integer>{
+	public Iterable<Article> findArticleByMyclassAndArticleTypeOrderByIdDesc(Integer classId,String type);
 
 }

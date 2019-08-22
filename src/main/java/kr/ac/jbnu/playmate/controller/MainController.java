@@ -1,12 +1,14 @@
 package kr.ac.jbnu.playmate.controller;
 
 import java.security.Principal;
+import java.time.LocalDate;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,8 +16,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import kr.ac.jbnu.playmate.model.Class;
+import kr.ac.jbnu.playmate.model.School;
 import kr.ac.jbnu.playmate.model.User;
+import kr.ac.jbnu.playmate.repository.ClassRepository;
+import kr.ac.jbnu.playmate.repository.SchoolRepository;
 import kr.ac.jbnu.playmate.repository.UserRepository;
+import kr.ac.jbnu.playmate.service.impl.ArticleServiceImpl;
 import kr.ac.jbnu.playmate.service.impl.UserServiceImpl;
 import kr.ac.jbnu.playmate.util.MyAuthentication;
 
@@ -24,7 +31,15 @@ import kr.ac.jbnu.playmate.util.MyAuthentication;
 public class MainController {
 
 	@Autowired
+	PasswordEncoder passwordEncoder;
+	@Autowired
+	ClassRepository classRepository;
+	@Autowired
 	UserServiceImpl userService;
+	@Autowired
+	SchoolRepository schoolRepository;
+	@Autowired
+	ArticleServiceImpl articleService;
 	private UserRepository userRepository;
 	
 	public MainController (UserRepository userRepository) {
@@ -50,7 +65,9 @@ public class MainController {
 	
 	@GetMapping("/class")
 	public String classroom(MyAuthentication auth,Model model) {
-		 model.addAttribute("User",auth.getUser());
+		User user =auth.getUser();
+		Class myclass=user.getClassId();
+		articleService.getArticles(myclass.getId(), "KEYWORD");
 		return "classroom/classroom";
 	}
 	@GetMapping("/class/v/{view_id}")
@@ -67,5 +84,33 @@ public class MainController {
 	@ResponseBody
 	public String test(Principal principal) {
 		return principal.getName();
+	}
+	@GetMapping("/genDefault")
+	@ResponseBody
+	public String genDefault() { 
+		School school = new School();
+		school.setAddress("addr");
+		school.setIdentifyCode(1234);
+		school.setName("cbnu");
+		schoolRepository.save(school);
+		
+		Class myclass= new Class();
+		myclass.setSchool(school);
+		myclass.setStudentGrade(1);
+		myclass.setClassNumber(1);
+		classRepository.save(myclass);
+		
+		User user = new User();
+		user.setBirthDate(LocalDate.now());
+		user.setUserName("testname");
+		user.setClassId(myclass);
+		user.setLoginId("test");
+		user.setGender("M");
+		user.setPassword(passwordEncoder.encode("test"));
+		user.setUserType("TEACHER");
+		user.setUserEmail("asd@naver.com");
+		userRepository.save(user);
+		
+		return "main/main";//school.toString()+myclass.toString()+user.toString();
 	}
 }
