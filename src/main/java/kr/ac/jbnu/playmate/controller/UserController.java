@@ -1,6 +1,7 @@
 package kr.ac.jbnu.playmate.controller;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -50,26 +51,22 @@ public class UserController {
 			@RequestParam(value = "birthD") String birthD,
 			@RequestParam(value = "subEmail1") String email1,
 			@RequestParam(value = "subEmail2") String email2,
-			@RequestParam(value = "exsclyy", required=false,defaultValue = "0") String exsclyy,
-			@RequestParam(value = "exsclyy", required=false,defaultValue = "0") String exsclbb
+			@RequestParam(value = "exsclyy", required=false,defaultValue = "1") String exsclyy,
+			@RequestParam(value = "exsclyy", required=false,defaultValue = "1") String exsclbb
 			) {
 			
 			String email = email1.concat("@").concat(email2);
-			int i_birthY = Integer.parseInt(birthY);
-			int i_birthM = Integer.parseInt(birthM);
-			int i_birthD = Integer.parseInt(birthD);
 			
-			LocalDate birthDate = LocalDate.of(i_birthY,i_birthM,i_birthD);
+			LocalDate birthDate = LocalDate.of(Integer.parseInt(birthY),Integer.parseInt(birthM),Integer.parseInt(birthD));
+			Class classroom = new Class();
+			
+			classroom.setStudentGrade(Integer.parseInt(exsclyy));
+			classroom.setClassNumber(Integer.parseInt(exsclbb));
+			
+			
 			user.setBirthDate(birthDate);
 			user.setGender(gender);
 			user.setUserEmail(email);
-			Class classroom = new Class();
-			int i_exsclyy = Integer.parseInt(exsclyy);
-			int i_exsclbb = Integer.parseInt(exsclbb);
-			
-			classroom.setStudentGrade(i_exsclyy);
-			classroom.setClassNumber(i_exsclbb);
-			
 			System.out.println(classroom.toString());
 			System.out.println(user.toString());
 			
