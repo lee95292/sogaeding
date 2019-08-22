@@ -320,14 +320,14 @@
 			$('#type_student').css({"background-image":"url(/resources/imgs/icon/ic_student.png)",'background-repeat':'no-repeat','background-color':'#fff','color':'rgb(74,166,157)'});
 			$('#exsclyybb').css({"display":"none"});
 			$('#nameLabel').text('이름');
-			$('#m_type').val('1');
+			$('#m_type').val('ADMIN');
 			break;
 		case 'type_teacher':
 			$('#'+id).css({"background-image":"url(/resources/imgs/icon/ic_teacher_on.png)",'background-repeat':'no-repeat','background-color':'rgb(51,125,192)','color':'#fff'});
 			$('#type_admin').css({"background-image":"url(/resources/imgs/icon/ic_admin.png)",'background-repeat':'no-repeat','background-color':'#fff','color':'rgb(237,160,64)'});
 			$('#type_student').css({"background-image":"url(/resources/imgs/icon/ic_student.png)",'background-repeat':'no-repeat','background-color':'#fff','color':'rgb(74,166,157)'});
 			$('#exsclyybb').css({"display":""});
-			$('#nameLabel').text('이름');
+			$('#nameLabel').text('TEACHER');
 			$('#m_type').val('2');
 			break;
 		case 'type_student':
@@ -335,7 +335,7 @@
 			$('#type_admin').css({"background-image":"url(/resources/imgs/icon/ic_admin.png)",'background-repeat':'no-repeat','background-color':'#fff','color':'rgb(237,160,64)'});
 			$('#type_teacher').css({"background-image":"url(/resources/imgs/icon/ic_teacher.png)",'background-repeat':'no-repeat','background-color':'#fff','color':'rgb(51,125,192)'});
 			$('#exsclyybb').css({"display":""});
-			$('#nameLabel').text('학생 이름');
+			$('#nameLabel').text('USER');
 			$('#m_type').val('3');
 			break;
 		}

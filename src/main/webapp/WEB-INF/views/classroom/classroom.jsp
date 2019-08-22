@@ -16,6 +16,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Basic|M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 	<!--  main css -->
 	<link rel="stylesheet" href="/resources/css/class/main.css" >
+	<link rel="stylesheet" href="/resources/css/class/youtube.css" >
 	<!-- contents css -->
 	<link rel="stylesheet" href="/resources/css/class/contents.css" >
 	<!-- 캘린더 css -->
@@ -61,12 +62,17 @@
 			    </div>
 			  </div>
 		</div>
+		<div id="e_room_contents"class="container-fluid">
+			<jsp:include page="../modules/youtube.jsp" flush="false"/> 
+		</div>
 		<!--  user-info -->
         <div id="user-info" class="container-fluid" class="padding:0 15px;"></div>
 </body>
 <script>
 //메뉴 버튼 클릭 
+
 $(document).ready(()=>{
+	$('#e_room_contents').addClass('nodisplay');
 	var maxheight = $(window).height()*5/6;
 	$('.col').css({'height':maxheight});
 	

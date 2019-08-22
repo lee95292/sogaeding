@@ -1,0 +1,31 @@
+#youtubeList {
+	
+}
+#youtubeList .list {
+    margin-bottom: 40px;
+    border-bottom: 1.3px solid #d4dadc;
+    overflow: hidden;
+    overflow-x: scroll;
+}
+#youtubeList .head-title {
+	    padding-bottom: 10px;
+   		 border-bottom: 1.3px solid #d4dadc;
+}
+#youtubeList .list .list-contents{
+	height:300px;
+	transition:1s;
+	display: inline-flex;
+}
+#youtubeList .list .list-contents .item {
+	display: inline-block;
+    text-align: center;
+    margin:10px;
+    width:280px;
+}
+#youtubeList .list .list-contents .item a {
+	display: inline-block;
+}
+#youtubeList .list .list-contents .item  a img {	
+    width: 280px;
+    height: 200px;
+}
