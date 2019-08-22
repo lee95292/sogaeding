@@ -26,8 +26,8 @@ public class ArticleServiceImpl {
 		articleRepository.save(article);
 	}
 	
-//	@Transactional
-//	public Iterable<Article> getArticles(Integer classId,String type ){
-//		return articleRepository.findArticleByMyclassAndArticleTypeOrderByIdDesc(classId, type);
-//	}
+	@Transactional
+	public Iterable<Article> getArticles(Integer classId,String type ){
+		return articleRepository.findArticleByMyclassAndArticleTypeOrderByIdDesc(classId, type);
+	}
 }
