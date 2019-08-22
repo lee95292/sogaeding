@@ -144,7 +144,7 @@
 										<p class="groupId">
 											* 4~12자의 영문소문자 또는 영문소문자 + 숫자를 입력해 주세요.
 											<br><br>
-											<input type="text" id="userId" name="userId" class="w160" value="${User.loginId}" style="ime-mode:disabled;" maxlength="12" required>
+											<input type="text" id="userId" name="loginId" class="w160" value="${User.loginId}" style="ime-mode:disabled;" maxlength="12" required>
 											<a href="javascript:void(0);" id="dpChk" class="btn_pop dupl" onclick="DubChkId();return false;">중복확인<span>&nbsp;</span></a><br>
 										</p>
 									</td>
@@ -220,11 +220,11 @@
 								<tr id="exsclyybb" style="display:none;">
 									<th scope="row"><label for="exsclyybb"><span>학년/반</span></label></th>
 									<td>
-										<select id="exsclyy" class="w60" value="${User.classId.studnet_grade}" style="display:inline-block;">
-											<option value="0">선택</option>
+										<select id="exsclyy" class="w60" style="display:inline-block;">
+											<option value="0" selected>선택</option>
 										</select><label>학년</label>
-										<select id="exsclbb"  value="${User.classId.class_number}" class="w60" style="display:inline-block;">
-											<option value="0">선택</option>
+										<select id="exsclbb" class="w60" style="display:inline-block;">
+											<option value="0" selected>선택</option>
 										</select><label>반</label>
 									</td>
 								</tr>

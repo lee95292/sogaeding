@@ -14,7 +14,13 @@ import lombok.Setter;
 @Entity
 @Table(name="class")
 public class Class extends BaseEntity{
-//	
+@Override
+public String toString() {
+	return "Class [studentGrade=" + studentGrade + ", classNumber=" + classNumber + ", classTeacher=" + classTeacher
+			+ ", school=" + school + "]";
+}
+
+	//	
 //	@Column(name="class_name")
 //	private String className;
 //	
@@ -35,10 +41,43 @@ public class Class extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name="school_id")
 	private School school;
+
+	public Integer getStudentGrade() {
+		return studentGrade;
+	}
+
+	public void setStudentGrade(Integer studentGrade) {
+		this.studentGrade = studentGrade;
+	}
+
+	public Integer getClassNumber() {
+		return classNumber;
+	}
+
+	public void setClassNumber(Integer classNumber) {
+		this.classNumber = classNumber;
+	}
+
+	public User getClassTeacher() {
+		return classTeacher;
+	}
+
+	public void setClassTeacher(User classTeacher) {
+		this.classTeacher = classTeacher;
+	}
+
+	public School getSchool() {
+		return school;
+	}
+
+	public void setSchool(School school) {
+		this.school = school;
+	}
 	
 	/*
 	 * private Schedule schedules;
 	 * private List<Article> articles;
 	 * etc..class functions will be added
 	 * */
+	
 }
