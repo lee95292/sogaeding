@@ -25,17 +25,7 @@
 	<link rel="stylesheet" href="/resources/css/calendarCss/pignose.calendar.css">
 	<!--  main js -->
 	 <script src="/resources/js/class/main.js"></script>
-	 <!-- calendar  -->
-	 <!-- If you use the default popups, use this. -->
 	 
-<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css" />
-<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css" />
-
-<link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css" />
-  <script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
-<script src="https://uicdn.toast.com/tui.time-picker/v1.6.1/tui-time-picker.min.js"></script>
-<script src="https://uicdn.toast.com/tui.date-picker/v3.3.4/tui-date-picker.min.js"></script>
-<script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
 </head>
 <body>
         <jsp:include page="../modules/header_modules.jsp" flush="false"/>
@@ -57,6 +47,59 @@
 			    <!-- 중간 단 main content -->
 			    <!-- 중간 단 main content -->
 			    <div class="col col-7 " id="main_content_html">
+			    	<!--  수업공지사항  -->
+			    	<div class="alert" style="
+					    padding: 0;
+					   
+					    height: 100%;
+					    margin: 0 auto;
+					">
+								   			<div class="upload" style="
+								   			border-radius:20px;
+								   			margin-bottom: 20px;
+								   			height: 30%;
+								   			border: 1px solid #e4e9a4;
+								   			width: 100%;
+								   			background-color: #f8f9fa!important;
+					">
+						<textarea name="textarea" id="textarea" col="8" row="10" style="
+    border-radius: 10px;
+    position: relative;
+    height: 80%;
+    width: 80%;
+    top: 20px;
+    left: 20px;
+    /* margin: 4.5% auto 4.5% 3%; */
+    float: left;
+">    
+</textarea>
+<div class="area_btn" style="
+    background: orangered;
+    line-height: 140px;
+    border-radius: 10px;
+    text-align: center;
+    float: right;
+    border: 1px solid gray;
+    color: #fff;
+    width: 10%;
+    height: 80%;
+    /* float: right; */
+    right: 0;
+    top: 20px;
+    position: relative;
+    right: 20px;
+">올리기</div>
+
+</div>
+			   			<div class="views">
+				   			<div class="item" style="border-radius:20px; border:1px solid gray;
+				   			height:150px; margin-bottom:20px"></div>
+				   			<div class="item" style="border-radius:20px; border:1px solid gray
+				   			;height:150px; margin-bottom:20px"></div>
+			   				<!-- 뷰 -->
+			   			</div>
+			    	</div>
+			    	<!--  ========   -->
 			    </div>
 			    <!-- 오른쪽 단  -->
 			    <!-- 오른쪽 단  -->
