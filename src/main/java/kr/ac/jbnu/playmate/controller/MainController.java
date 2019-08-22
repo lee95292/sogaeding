@@ -67,7 +67,7 @@ public class MainController {
 	public String classroom(MyAuthentication auth,Model model) {
 		User user =auth.getUser();
 		Class myclass=user.getClassId();
-		articleService.getArticles(myclass.getId(), "KEYWORD");
+		//articleService.getArticles(myclass.getId(), "KEYWORD");
 		return "classroom/classroom";
 	}
 	@GetMapping("/class/v/{view_id}")
@@ -82,8 +82,10 @@ public class MainController {
 	// TEST CASE
 	@GetMapping("/kk")
 	@ResponseBody
-	public String test(Principal principal) {
-		return principal.getName();
+	public String test(MyAuthentication auth) {
+		User user = auth.getUser();
+		return user.getClassId().toString();
+		
 	}
 	@GetMapping("/genDefault")
 	@ResponseBody

@@ -17,7 +17,7 @@ import lombok.Setter;
 public class Class extends BaseEntity{
 @Override
 public String toString() {
-	return "Class [studentGrade=" + studentGrade + ", classNumber=" + classNumber + ", classTeacher=" + classTeacher
+	return "Class [studentGrade=" + studentGrade + ", classNumber=" + classNumber
 			+ ", school=" + school + "]";
 }
 
@@ -33,13 +33,13 @@ public String toString() {
 	@Column(name="class_number")
 	private Integer classNumber;
 	
-	// 고유번호 
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name="teacher_id")
-	private User classTeacher;
+//	// 고유번호 
+//	@OneToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name="teacher_id")
+//	private User classTeacher;
 	
 	//
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="school_id")
 	private School school;
 
@@ -59,13 +59,13 @@ public String toString() {
 		this.classNumber = classNumber;
 	}
 
-	public User getClassTeacher() {
-		return classTeacher;
-	}
-
-	public void setClassTeacher(User classTeacher) {
-		this.classTeacher = classTeacher;
-	}
+//	public User getClassTeacher() {
+//		return classTeacher;
+//	}
+//
+//	public void setClassTeacher(User classTeacher) {
+//		this.classTeacher = classTeacher;
+//	}
 
 	public School getSchool() {
 		return school;
