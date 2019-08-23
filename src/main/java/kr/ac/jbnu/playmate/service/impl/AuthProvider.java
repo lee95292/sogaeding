@@ -42,11 +42,11 @@ public class AuthProvider implements AuthenticationProvider{
         
         // 로그인한 계정에게 권한 부여
         if(userType.equals("ADMIN")) {
-    		grantedAuthorityList.add(new SimpleGrantedAuthority("ADMIN"));
+    		grantedAuthorityList.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
         }else if(userType.equals("TEACHER")) {
-    		grantedAuthorityList.add(new SimpleGrantedAuthority("TEACHER"));
+    		grantedAuthorityList.add(new SimpleGrantedAuthority("ROLE_TEACHER"));
         }
-        grantedAuthorityList.add(new SimpleGrantedAuthority("USER"));
+        grantedAuthorityList.add(new SimpleGrantedAuthority("ROLE_USER"));
         
 		return new MyAuthentication(id,nullOrUser.getPassword(),grantedAuthorityList,nullOrUser);
 	}

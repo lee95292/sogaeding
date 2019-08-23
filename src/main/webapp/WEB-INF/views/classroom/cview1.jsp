@@ -8,42 +8,10 @@
 					    height: 100%;
 					    margin: 0 auto;
 					">
-								   			<div class="upload" style="
-								   			border-radius:20px;
-								   			margin-bottom: 20px;
-								   			height: 30%;
-								   			border: 1px solid #e4e9a4;
-								   			width: 100%;
-								   			background-color: #f8f9fa!important;
-					">
-						<textarea name="textarea" id="textarea" col="8" row="10" style="
-    border-radius: 10px;
-    position: relative;
-    height: 80%;
-    width: 80%;
-    top: 20px;
-    left: 20px;
-    /* margin: 4.5% auto 4.5% 3%; */
-    float: left;
-">    
+								   			<div class="upload" >
+						<textarea name="textarea" id="textarea" col="8" row="10" >    
 </textarea>
-<div class="area_btn" style="
-    background: orangered;
-    line-height: 140px;
-    border-radius: 10px;
-    text-align: center;
-    float: right;
-    border: 1px solid gray;
-    color: #fff;
-    width: 10%;
-    height: 80%;
-    /* float: right; */
-    right: 0;
-    top: 20px;
-    position: relative;
-    right: 20px;
-   
-" onclick="uploadText1();">올리기</div>
+<div class="area_btn" onclick="uploadText1();">올리기</div>
 
 </div>
 			   			<div id="schoolnotice_views" class="views">

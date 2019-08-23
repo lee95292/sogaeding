@@ -4,9 +4,11 @@ import java.security.Principal;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -22,6 +24,7 @@ import kr.ac.jbnu.playmate.service.impl.UserServiceImpl;
 import kr.ac.jbnu.playmate.util.MyAuthentication;
 
 @Controller
+@Validated
 public class MainController {
 
 	@Autowired
@@ -50,14 +53,14 @@ public class MainController {
 		return "main/main";
 	}
 	// user 정보 
-	
+	@Secured("ROLE_USER")
 	@GetMapping("/user")
 	   public String userInfo(MyAuthentication auth,Model model) {
 	      model.addAttribute("User",auth.getUser());
 	      return "main/user-info";
 	   }
 	
-	//@Secured("USER")
+	@Secured("ROLE_USER")
 	@GetMapping("/class")
 	public String classroom(MyAuthentication auth,Model model) {
 		User user =auth.getUser();
@@ -66,6 +69,7 @@ public class MainController {
 		
 		return "classroom/classroom";
 	}
+	@Secured("ROLE_USER")
 	@GetMapping("/class/v/{view_id}")
 	public String cview(@PathVariable("view_id") String view_id) {
 		
@@ -76,6 +80,7 @@ public class MainController {
 	}
 	
 	// TEST CASE
+	@Secured("USER")
 	@ResponseBody
 	@GetMapping("/kk")
 	public String test(MyAuthentication auth) {

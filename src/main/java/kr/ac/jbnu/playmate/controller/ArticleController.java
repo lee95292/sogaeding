@@ -25,7 +25,7 @@ public class ArticleController {
 	ArticleServiceImpl articleService;
 	
 	
-//	@Secured("USER")
+	@Secured("ROLE_USER")
 	@GetMapping("/keyadd/{type}/{content}")
 	public String addBoard(MyAuthentication auth,@PathVariable String type,@PathVariable String content,Model model) {
 		if(articleService.addArticle(type, auth.getUser(),content)) {
@@ -34,7 +34,7 @@ public class ArticleController {
 		return "classroom/classroom";
 	}
 	
-//	@Secured("TEACHER")
+	@Secured("ROLE_TEACHER")
 	@GetMapping("/class/auth/{type}/{content}")
 	public String authWrite(MyAuthentication auth,@PathVariable String type,@PathVariable String content,Model model) {
 		User user = auth.getUser();
@@ -45,7 +45,7 @@ public class ArticleController {
 		return "classroom/classroom";
 	}
 	
-//	@Secured("USER")
+	@Secured("ROLE_USER")
 	@GetMapping("/class/{type}")
 	@ResponseBody
 	public List<Article> unAuthWrite(MyAuthentication auth,@PathVariable String type,Model model) {
