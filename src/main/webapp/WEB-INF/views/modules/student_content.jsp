@@ -23,9 +23,9 @@
 	   			<a href="#" onclick="menu(this)" id="4">과제방</a>
 	   		</div><sec:authorize access="hasRole('TEACHER')" >AAAAAAAA</sec:authorize>
 	   	<div class="w-100">
-	   		<div class="col-sm">
+	   		<!--<div class="col-sm">
 	    		<a href="#" onclick="menu(this)" id="5">성적확인</a>
-	    	</div><!-- 
+	    	</div>
 	   		<div class="col-sm">
 	   			<a href="#"></a>
 	   		</div> -->

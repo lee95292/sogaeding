@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.ac.jbnu.playmate.model.Article;
 import kr.ac.jbnu.playmate.model.Class;
@@ -24,7 +25,7 @@ public class ArticleController {
 	ArticleServiceImpl articleService;
 	
 	
-	@Secured("TEACHER")
+//	@Secured("USER")
 	@GetMapping("/keyadd/{type}/{content}")
 	public String addBoard(MyAuthentication auth,@PathVariable String type,@PathVariable String content,Model model) {
 		if(articleService.addArticle(type, auth.getUser(),content)) {
@@ -33,9 +34,9 @@ public class ArticleController {
 		return "classroom/classroom";
 	}
 	
-	@Secured("TEACHER")
-	@GetMapping("/class/auth/{type}")
-	public String authWrite(MyAuthentication auth,@PathVariable String type,Model model) {
+//	@Secured("TEACHER")
+	@GetMapping("/class/auth/{type}/{content}")
+	public String authWrite(MyAuthentication auth,@PathVariable String type,@PathVariable String content,Model model) {
 		User user = auth.getUser();
 		Class myclass= user.getClassId();
 		List<Article> articles= articleService.getArticles(myclass, type);
@@ -44,15 +45,16 @@ public class ArticleController {
 		return "classroom/classroom";
 	}
 	
-	@Secured("USER")
+//	@Secured("USER")
 	@GetMapping("/class/{type}")
-	public String unAuthWrite(MyAuthentication auth,@PathVariable String type,Model model) {
+	@ResponseBody
+	public List<Article> unAuthWrite(MyAuthentication auth,@PathVariable String type,Model model) {
 		User user = auth.getUser();
 		Class myclass= user.getClassId();
 		List<Article> articles= articleService.getArticles(myclass, type);
 
 		model.addAttribute("articles", articles);
-		return "classroom/classroom";
+		return articles;
 	}
 	
 }

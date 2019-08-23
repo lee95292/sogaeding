@@ -26,6 +26,12 @@
 	 <script src="/resources/js/class/main.js"></script>
 	 
 </head>
+<script id="view_item" type="text/template">
+			<div class="item" style="border-radius:20px; border:1px solid gray;
+				   			height:150px; margin-bottom:20px" >
+		           {1}
+          	  </div>
+</script>
 <body>
         <jsp:include page="../modules/header_modules.jsp" flush="false"/>
         <!-- container -->
@@ -47,6 +53,8 @@
 			    <!-- 중간 단 main content -->
 			    <div class="col col-7 " id="main_content_html">
 			    	<!--  수업공지사항  -->
+			    	<h5>커뮤니티</h5>
+			    	<br>
 			    	<div class="alert" style="
 					    padding: 0;
 					   
@@ -88,14 +96,11 @@
     position: relative;
     right: 20px;
    
-">올리기</div>
+" onclick="uploadText();">올리기</div>
 
 </div>
-			   			<div class="views">
-				   			<div class="item" style="border-radius:20px; border:1px solid gray;
-				   			height:150px; margin-bottom:20px"></div>
-				   			<div class="item" style="border-radius:20px; border:1px solid gray
-				   			;height:150px; margin-bottom:20px"></div>
+			   			<div id="community_view" class="views">
+			   				
 			   				<!-- 뷰 -->
 			   			</div>
 			    	</div>
@@ -123,10 +128,47 @@
 		<!--  user-info -->
         <div id="user-info" class="container-fluid" class="padding:0 15px;"></div>
 </body>
+
 <script>
 //메뉴 버튼 클릭 
 
+function uploadText(){
+	var content = $('#textarea').val();
+	$.ajax({
+		  url : "/keyadd/community/"+content,
+		    type : "GET",
+		    success : function(){
+		    			console.log("success upload");
+		    			getText();
+		    	 },
+		    	 error : function() {
+		    			console.log("failed");
+		    			alert("올리는데 실패하였습니다. 잠시후 다시 시도해주세요");
+		    	 }
+	    	});
+	
+}
+function getText(){
+	$('#community_view').html("");
+	$.ajax({
+		  url : "/class/community",
+		  contentType : "application/json",
+		    type : "GET",
+		    success : function(jsonData){
+		    			console.log("success upload");
+		    			//location.reload();
+		    			for (var i = 0; i < jsonData.length; i++) {
+							var Text = jsonData[i].content;
+							let item = document.querySelector("#view_item").innerHTML;
+							var resultitem = item.replace("{1}",Text);
+							$('#community_view').append(resultitem);
+		    			}
+		    	 }
+	    	});
+}
 $(document).ready(()=>{
+	getText();
+	$('#textarea').val('');
 	$('#e_room_contents').addClass('nodisplay');
 	var maxheight = $(window).height()*5/6;
 	$('.col').css({'height':maxheight});

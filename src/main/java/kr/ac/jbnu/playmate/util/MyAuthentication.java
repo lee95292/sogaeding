@@ -8,7 +8,6 @@ import org.springframework.security.core.GrantedAuthority;
 import kr.ac.jbnu.playmate.model.User;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 
 @Data 
 @EqualsAndHashCode(callSuper = false)
