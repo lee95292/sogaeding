@@ -99,8 +99,7 @@ function transYT(t){
 </script>
 <script>
 let recommend="";
-const k_ap_i="AIzaSyBhkeu38xXMwrK7W0feKPCaTj7KjTHM7fg";
-//const k_ap_i="AIzaSyCjzIgNpl922t98PL7dAHIFenWBlwKV8mM";
+const k_ap_i=*****;
 const EBS = "UCl_tB4AqPkkxuYcJQHz6dMw";
 
 var type = {"ko":"지식채널e","his":"역사채널e","reco":recommend};
@@ -118,7 +117,11 @@ function makeItem(locate,title,id,img){
 $(document).ready(()=> {
 	for(let key in type){
 		
-		let allData = { "key":k_ap_i,"channelId":EBS, "part":"snippet","q":type[key], "maxResult":"20"};
+		let allData = { "key":
+			       
+			       
+			       
+			       _i,"channelId":EBS, "part":"snippet","q":type[key], "maxResult":"20"};
 		
 		$.ajax({
 			  url : "https://www.googleapis.com/youtube/v3/search",
